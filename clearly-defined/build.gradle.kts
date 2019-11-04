@@ -1,12 +1,21 @@
-val retrofitVersion: String by project
+import java.net.URL
 
 plugins {
     // Apply core plugins.
     `java-library`
+
+    // Apply third-party plugins.
+    id("org.openapi.generator") version "4.1.0"
 }
 
-dependencies {
-    api("com.squareup.retrofit2:retrofit:$retrofitVersion")
+openApiGenerate {
+    generatorName.set("kotlin")
 
-    implementation("com.squareup.retrofit2:converter-jackson:$retrofitVersion")
+    // The below results in:
+    // Server returned HTTP response code: 403 for URL: https://api.clearlydefined.io/schemas/swagger.yaml
+    inputSpec.set(URL("https://api.clearlydefined.io/schemas/swagger.yaml").readText())
+
+
+    // The below code works fine.
+    //inputSpec.set(URL("https://github.com/clearlydefined/service/raw/master/schemas/swagger.yaml").readText())
 }
