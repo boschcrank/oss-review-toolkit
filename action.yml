@@ -12,8 +12,12 @@
 name: 'OSS Analysis'
 description: 'Analyze a repository with the OSS Review Toolkit'
 inputs:
-    ort-args:
-      description: 'ORT command line arguments'
+    input-dir:
+      description: 'ORT input directory'
+      required: false
+      default: '/github/workspace'
+    output-dir:
+      description: 'ORT results directory'
       required: true
 runs:
   using: 'docker'
