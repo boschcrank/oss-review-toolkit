@@ -23,4 +23,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.ort-args }}
+    - analyze
+    - -i
+    - ${{ inputs.input-dir }}
+    - -o
+    - ${{ inputs.output-dir }}
