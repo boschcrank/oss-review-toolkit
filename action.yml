@@ -17,6 +17,6 @@ inputs:
       required: true
 runs:
   using: 'docker'
-  image: 'docker/run/Dockerfile'
+  image: 'Dockerfile'
   args:
     - ${{ inputs.ort-args }}
