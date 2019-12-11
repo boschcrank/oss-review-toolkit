@@ -28,3 +28,5 @@ runs:
     - ${{ inputs.input-dir }}
     - -o
     - ${{ inputs.output-dir }}
+    - --allow-dynamic-versions
+    - -f JSON
